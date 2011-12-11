@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>arcisi simple demos</title>
+    <script type="text/javascript">
+      function dump(aMsgWithNewline) {
+        console.log(aMsgWithNewline.replace("\n", "", "g"));
+      }
+    </script>
+    <style type="text/css">
+      html {
+        font-family: "Lucida Grande", Verdana, sans-serif;
+        font-size: 9pt;
+      }
+      :focus { outline: none; }
+      a[href] { text-decoration: none }
+    </style>
+<script type="text/javascript" src="../deps/require.js"></script>
+  <script>
+    require.config({
+      baseUrl: "../deps",
+      packages: [
+        { name: "arcisi", location: "../lib/arcisi" },
+      ]
+    });
+    require(["arcisi/baker",
+             "../deps/csg.js/tests/lightgl.js",
+             "../deps/csg.js/csg.js",
+             "../deps/csg-patches.js",
+             "../deps/csg.js/tests/viewer.js"],
+      function(baker) {
+        baker.main({
+          floors: 1,
+          needs: {
+            office: {
+              openPlanDesks: 40,
+              privateOffices: 4,
+              conferenceRooms: [4, 4, 6, 10],
+            },
+          }
+        });
+      });
+  </script>
+  </head>
+<body id="body" style="border: 0; padding: 0; margin: 0;">
+  <div id="0">
+  </div>
+</body>
+</html>
