@@ -27,18 +27,19 @@
     require(["arcisi/baker",
              "../deps/csg.js/tests/lightgl.js",
              "../deps/csg.js/csg.js",
-             "../deps/csg-patches.js",
              "../deps/csg.js/tests/viewer.js"],
       function(baker) {
-        baker.main({
-          floors: 1,
-          needs: {
-            office: {
-              openPlanDesks: 40,
-              privateOffices: 4,
-              conferenceRooms: [4, 4, 6, 10],
-            },
-          }
+        require([ "../deps/csg-patches.js"], function() {
+          baker.main({
+            floors: 1,
+            needs: {
+              office: {
+                openPlanDesks: 40,
+                privateOffices: 4,
+                conferenceRooms: [4, 4, 6, 10],
+              },
+            }
+          });
         });
       });
   </script>
